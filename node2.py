@@ -4,13 +4,13 @@ import sys     # Required for exiting loops based on keyboard interrupt
 import pickle # Needed as the data is being sent and recieved in the form json
 
 MCAST_GRP = '224.1.1.1' # Multicast Group 
-MCAST_PORT = 34000       # Port for Multicast receiving
+MCAST_PORT = 34001       # Port for Multicast receiving
 IS_ALL_GROUPS = True    # Boolean value to check if the port needs to be bound to group or all kinds of broadcast
 MULTICAST_TTL = 2       # Time to live for multicast
 
-MCAST_PORT_2 = 34006    # Port for the relay of incoming data
+MCAST_PORT_2 = 34008    # Port for the relay of incoming data
 
-my_levels = {"Nitrogen Level":1400,"Phosphate Level":1600,"PH":5.7}
+my_levels = {"Nitrogen Level":1300,"Phosphate Level":2200,"PH":7.8}
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP) # seperate socket for UDP Multicasting
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # Providing socket paramters to define socket behaviour
@@ -37,7 +37,7 @@ while True:
         PH = data["PH"]                    
         print(f"Nitrogen Level:{Nitrogen} Phosphate Level: {Phosphate} PH Level:{PH}")
         # data["source"] = "Node-Reciever 1"  # Altering the source for further relay
-        if my_levels["Nitrogen Level"]>Nitrogen:
+        if my_levels["Nitrogen Level"]<Nitrogen:
             print("Excess Nitrogen Content. Blocking Nozzle\n")
         else:
             print("Allowing Irrigation\n")
