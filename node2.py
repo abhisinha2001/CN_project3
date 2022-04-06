@@ -4,7 +4,7 @@ import sys     # Required for exiting loops based on keyboard interrupt
 import pickle # Needed as the data is being sent and recieved in the form json
 
 MCAST_GRP = '224.1.1.1' # Multicast Group 
-MCAST_PORT = 34006       # Port for Multicast receiving
+MCAST_PORT = 34001       # Port for Multicast receiving
 IS_ALL_GROUPS = True    # Boolean value to check if the port needs to be bound to group or all kinds of broadcast
 MULTICAST_TTL = 2       # Time to live for multicast
 
