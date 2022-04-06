@@ -14,7 +14,9 @@ sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, MULTICAST_TTL)  # Pr
 while True:
     try:
         s= socket.socket(socket.AF_INET,socket.SOCK_STREAM) # Creating a socket that supports TCP connection
-        s.connect((socket.gethostname(),PORT))              # Connecting with the server socket
+        # socket.gethostname()
+        s.connect((socket.gethostname(),PORT))
+        # s.connect(('10.35.70.12',PORT))              # Connecting with the server socket
         data = pickle.loads(s.recv(1024))                   # Recieving data and loading it as byte stream using pickle
         Nitrogen = data["Nitrogen level"]                               # Destructuring of data
         Phosphate = data["Phosphate Level"]
