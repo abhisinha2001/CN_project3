@@ -7,7 +7,7 @@ import time
 MCAST_GRP = '224.1.1.1' # Multicast Group 
 MCAST_PORT = 34001       # Port for Multicast receiving
 IS_ALL_GROUPS = True    # Boolean value to check if the port needs to be bound to group or all kinds of broadcast
-MULTICAST_TTL = 3       # Time to live for multicast
+MULTICAST_TTL = 3       # Time to live for multicast- Controls the number of hops for packet.
 time_start = time.localtime(time.time())  
 
 
@@ -29,7 +29,7 @@ else:
 
 mreq = struct.pack("4sl", socket.inet_aton(MCAST_GRP), socket.INADDR_ANY) # Message request needed for the mulitcast recieving
 if mreq:
-    print("2.Mreq Done")
+    print("2.MREQ Done")
 
 sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)     # Setting up socket behaviour - Boilerplate code 
 if sock:

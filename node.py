@@ -29,7 +29,7 @@ else:
 
 mreq = struct.pack("4sl", socket.inet_aton(MCAST_GRP), socket.INADDR_ANY) # Message request needed for the mulitcast recieving
 if mreq:
-    print("2.Mreq Done")
+    print("2.MREQ Done")
 
 sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)     # Setting up socket behaviour - Boilerplate code 
 if sock:
