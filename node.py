@@ -57,7 +57,7 @@ while True:
             sender_sock.sendto(pickle.dumps(data), (MCAST_GRP, MCAST_PORT_2)) # Using the UDP broadcasting socket to broadcast the recieved data
             time_start = time.localtime(time.time())
         if time_start.tm_hour - time.localtime(time.time()).tm_hour >1:
-            print("\nTIMEOUT ALERT. Please check node 2\n")
+            print("\nTIMEOUT ALERT. Please check node 1\n")
             
                 
         

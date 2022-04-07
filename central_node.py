@@ -30,7 +30,7 @@ while True:
             for MCAST_PORT in range(34000,34005):
                 sock.sendto(pickle.dumps(data), (MCAST_GRP, MCAST_PORT)) # Using the UDP broadcasting socket to broadcast the recieved data
         if time_start.tm_hour - time.localtime(time.time()).tm_hour >1:
-            print("\nTIMEOUT ALERT. Please check node 2\n")
+            print("\nTIMEOUT ALERT. Please check central node\n")
                 
         time.sleep(2)                           # Performing a request every second
     except KeyboardInterrupt:                   # Detect Keyboard event
